@@ -1,0 +1,19 @@
+// virtual momentary switch by bscuderi
+metadata {
+	definition (name: "Virtual Momentary Switch", namespace: "bscuderi", author: "Brennon Scuderi") {
+		capability "Sensor"
+		capability "Switch"
+	}   
+}
+
+def on() {
+    sendEvent(name: "switch", value: "on")
+    runIn(3, off)
+}
+
+def off() {
+    sendEvent(name: "switch", value: "off")
+}
+
+def installed() {
+}
